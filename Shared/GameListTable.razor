@@ -23,7 +23,7 @@
             {
                 @foreach (var item in Games)
                 {
-                    <IndividualGame Game="item" IsTable="true" DisplayButtons = "displayButtons" />
+                    <IndividualGame Game="item" IsTable="true" DisplayButtons = "displayButtons" DeleteGame = "DeleteTheGame"/>
                 }
             }
         </tbody>
@@ -34,4 +34,9 @@
     [Parameter] public List<Game>? Games { get; set; }
 
     bool displayButtons = false;
+
+    void DeleteTheGame(Game game)
+    {
+        Games?.Remove(game);         
+    }
 }
